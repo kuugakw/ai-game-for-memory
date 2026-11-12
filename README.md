@@ -2,6 +2,7 @@
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![tests](https://github.com/kuugakw/ai-game-for-memory/actions/workflows/tests.yml/badge.svg)](https://github.com/kuugakw/ai-game-for-memory/actions/workflows/tests.yml)
 [![Status](https://img.shields.io/badge/Status-prototype%20%2F%20archived-lightgrey.svg)]()
 
 > 一套给**本地 / 离线 AI** 用的分层记忆骨架：上下文有上界，记忆无上界；状态用快照精确恢复，
