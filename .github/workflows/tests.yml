@@ -1,0 +1,39 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.10", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install package (validates packaging metadata)
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install .
+          python -m pip install "pytest>=7,<9"
+
+      - name: Run tests
+        run: python -m pytest tests -q
+
+      - name: Run example
+        run: python examples/demo.py
+
+      - name: Run built-in test runner
+        run: python tests/test_ai_game_for_memory.py
